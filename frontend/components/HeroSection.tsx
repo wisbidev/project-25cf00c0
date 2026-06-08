@@ -1,8 +1,44 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useCallback } from 'react';
+
+function ArrowRightIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  );
+}
+
+function ChevronDownIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
 
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -13,8 +49,10 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
-      {/* Blue gradient glow behind headline */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-accent/20 blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-accent/20 blur-[120px] pointer-events-none"
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
         <motion.h1
@@ -50,7 +88,7 @@ export default function HeroSection() {
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent hover:bg-accent/90 text-text font-semibold rounded-xl transition-colors cursor-pointer w-full sm:w-auto"
           >
             Bắt đầu ngay
-            <ArrowRight size={18} />
+            <ArrowRightIcon />
           </a>
           <button
             type="button"
@@ -58,7 +96,7 @@ export default function HeroSection() {
             className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border hover:border-accent text-text font-semibold rounded-xl transition-colors cursor-pointer w-full sm:w-auto"
           >
             Xem cách hoạt động
-            <ChevronDown size={18} />
+            <ChevronDownIcon />
           </button>
         </motion.div>
       </div>
